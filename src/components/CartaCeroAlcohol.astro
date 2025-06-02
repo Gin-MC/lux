@@ -1,0 +1,96 @@
+---
+// Puedes reemplazar estos con props o datos dinámicos después
+const coctelesIzquierda = [
+  {
+    nombre: "Sol Dorado",
+    descripcion: "Un cóctel brillante con notas cítricas y un final burbujeante.",
+    ingredientes: ["Gin", "Jugo de limón", "Jarabe de agave", "Soda"],
+    etiquetas: ["Refrescante", "Cítrico"],
+    imagen: "https://hips.hearstapps.com/hmg-prod/images/coctel-papakiss-don-papa-elle-1613080119.jpg"
+  },
+  {
+    nombre: "Pasión Lux",
+    descripcion: "Frutal y seductor, ideal para abrir la noche con estilo.",
+    ingredientes: ["Vodka", "Maracuyá", "Triple sec", "Espuma de piña"],
+    etiquetas: ["Afrutado", "Exótico"],
+    imagen: "https://hips.hearstapps.com/hmg-prod/images/coctel-papakiss-don-papa-elle-1613080119.jpg"
+  },
+  {
+    nombre: "Sol Dorado",
+    descripcion: "Un cóctel brillante con notas cítricas y un final burbujeante.",
+    ingredientes: ["Gin", "Jugo de limón", "Jarabe de agave", "Soda"],
+    etiquetas: ["Refrescante", "Cítrico"],
+    imagen: "https://hips.hearstapps.com/hmg-prod/images/coctel-papakiss-don-papa-elle-1613080119.jpg"
+  },
+  // Agrega 2 más
+];
+
+const coctelesDerecha = [
+  {
+    nombre: "Noche Estelar",
+    descripcion: "Oscuro, ahumado y con toques herbales que sorprenden.",
+    ingredientes: ["Mezcal", "Vermut", "Romero", "Humo líquido"],
+    etiquetas: ["Ahumado", "Intenso"],
+    imagen: "https://hips.hearstapps.com/hmg-prod/images/coctel-papakiss-don-papa-elle-1613080119.jpg"
+  },
+  {
+    nombre: "Jardín Secreto",
+    descripcion: "Refrescante y floral, como un paseo entre flores al atardecer.",
+    ingredientes: ["Gin", "Lavanda", "Pepino", "Tónica"],
+    etiquetas: ["Refrescante", "Floral"],
+    imagen: "https://hips.hearstapps.com/hmg-prod/images/coctel-papakiss-don-papa-elle-1613080119.jpg"
+  },
+  {
+    nombre: "Noche Estelar",
+    descripcion: "Oscuro, ahumado y con toques herbales que sorprenden.",
+    ingredientes: ["Mezcal", "Vermut", "Romero", "Humo líquido"],
+    etiquetas: ["Ahumado", "Intenso"],
+    imagen: "https://hips.hearstapps.com/hmg-prod/images/coctel-papakiss-don-papa-elle-1613080119.jpg"
+  },
+  // Agrega 2 más
+];
+---
+
+<section class="py-16 px-6 text-white" id="carta-cero-alcohol">
+  <h2 class="text-4xl text-center text-[#FFD700] font-bold mb-12">Mocktails sin Alcohol</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-7xl mx-auto">
+    <!-- Columna izquierda -->
+    <div class="space-y-10">
+      {coctelesIzquierda.map((c) => (
+        <div class="border border-[#FFD700] rounded-2xl overflow-hidden shadow-md flex">
+          <img src={c.imagen} alt={c.nombre} class="w-1/2 aspect-square object-cover" />
+          <div class="w-1/2 p-6">
+            <h3 class="text-2xl font-semibold text-[#FFD700]">{c.nombre}</h3>
+            <p class="text-sm mb-2">{c.descripcion}</p>
+            <p class="text-xs text-gray-300 mb-1">Ingredientes: {c.ingredientes.join(", ")}</p>
+            <div class="flex flex-wrap gap-2 mt-1">
+              {c.etiquetas.map((et) => (
+                <span class="bg-[#FFD700] text-black text-xs px-2 py-0.5 rounded-full">{et}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="space-y-10">
+      {coctelesDerecha.map((c) => (
+        <div class="border border-[#FFD700] rounded-2xl overflow-hidden shadow-md flex flex-row-reverse">
+          <img src={c.imagen} alt={c.nombre} class="w-1/2 aspect-square object-cover" />
+          <div class="w-1/2 p-6 text-right">
+            <h3 class="text-2xl font-semibold text-[#FFD700]">{c.nombre}</h3>
+            <p class="text-sm mb-2">{c.descripcion}</p>
+            <p class="text-xs text-gray-300 mb-1">Ingredientes: {c.ingredientes.join(", ")}</p>
+            <div class="flex flex-wrap gap-2 justify-end mt-1">
+              {c.etiquetas.map((et) => (
+                <span class="bg-[#FFD700] text-black text-xs px-2 py-0.5 rounded-full">{et}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

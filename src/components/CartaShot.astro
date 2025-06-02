@@ -1,0 +1,41 @@
+---
+const shots = [
+  { nombre: 'Shot 1', imagen: 'https://png.pngtree.com/png-clipart/20250109/original/pngtree-tequila-shot-glasses-toasting-with-splash-png-image_19383318.png' },
+  { nombre: 'Shot 2', imagen: 'https://png.pngtree.com/png-clipart/20250109/original/pngtree-tequila-shot-glasses-toasting-with-splash-png-image_19383318.png' },
+  { nombre: 'Shot 3', imagen: 'https://png.pngtree.com/png-clipart/20250109/original/pngtree-tequila-shot-glasses-toasting-with-splash-png-image_19383318.png' },
+  { nombre: 'Shot 4', imagen: 'https://png.pngtree.com/png-clipart/20250109/original/pngtree-tequila-shot-glasses-toasting-with-splash-png-image_19383318.png' },
+  { nombre: 'Shot 5', imagen: 'https://png.pngtree.com/png-clipart/20250109/original/pngtree-tequila-shot-glasses-toasting-with-splash-png-image_19383318.png' },
+  { nombre: 'Shot 6', imagen: 'https://png.pngtree.com/png-clipart/20250109/original/pngtree-tequila-shot-glasses-toasting-with-splash-png-image_19383318.png' },
+];
+---
+
+<section class="w-full bg-black py-12 px-4 text-yellow-400" id="carta-shots">
+  <h2 class="text-3xl font-bold text-center mb-8 pb-2">
+    Shots 
+  </h2>
+
+  <div class="flex justify-center gap-8 overflow-x-auto no-scrollbar">
+    {shots.map(({ nombre, imagen }) => (
+      <div class="flex flex-col items-center min-w-[120px]">
+        <img
+          src={imagen}
+          alt={nombre}
+          class="w-42 h-42 object-cover rounded-lg shadow-lg"
+          loading="lazy"
+        />
+        <span class="mt-2 text-yellow-300 font-semibold">{nombre}</span>
+      </div>
+    ))}
+  </div>
+</section>
+<style>
+    /* en global.css o similar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+</style>

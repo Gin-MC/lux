@@ -8,10 +8,9 @@ import Redes from '../components/Redes.astro';
 ---
 
 <Layout>
-    <Navbar />
-    <Hero />
-    <CocktailCard />
-    <Redes />
-    <Footer />
-
+    <Navbar slot={"navbar"}/>
+    <Hero slot={"hero"} />
+    <CocktailCard slot={"coctail-card"} />
+    <Footer slot={"footer"} />
+    <Redes slot={"redes"}/>
 </Layout>

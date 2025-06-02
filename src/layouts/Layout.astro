@@ -13,6 +13,42 @@ import './src/styles/global.css';
 		<title>Lux</title>
 	</head>
 	<body class="bg-black text-white">
+		<nav>
+			<slot name="navbar"/>
+		</nav>
+
+		<main>
+			<section>
+				<slot name="hero" />
+			</section>
+			<section>
+				<slot name="coctail-card" />
+			</section>
+			<section>
+				<slot name="redes" />
+			</section>
+
+			<!-- pag carta -->
+			 <section>
+				<slot name="carta-autor" />
+			 </section>
+			 <section>
+				<slot name="carta-shot" />
+			 </section>
+			<section>
+				<slot name="carta-mixologia" />
+			</section>
+			<section>
+				<slot name="carta-cero-alcohol" />
+			</section>
+			<section>
+				<slot name="carta-clasica" />
+			</section>
+		</main>
+
+		<footer>
+			<slot name="footer" />
+		</footer>
 		<slot />
 	</body>
 </html>

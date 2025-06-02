@@ -1,0 +1,83 @@
+---
+const coctelesIzquierda = [
+  { nombre: 'Manhattan', ingredientes: ['Whiskey', 'Vermut rojo', 'Angostura'], etiquetas: ['Clásico', 'Fuerte'] },
+  { nombre: 'Dry Martini', ingredientes: ['Gin', 'Vermut seco', 'Aceituna'], etiquetas: ['Seco', 'Elegante'] },
+  { nombre: 'Sidecar', ingredientes: ['Cognac', 'Triple sec', 'Limón'], etiquetas: ['Ácido', 'Vintage'] },
+  { nombre: 'Mint Julep', ingredientes: ['Bourbon', 'Menta', 'Azúcar'], etiquetas: ['Refrescante', 'Veraniego'] },
+  { nombre: 'French 75', ingredientes: ['Gin', 'Champagne', 'Limón', 'Azúcar'], etiquetas: ['Espumoso', 'Fino'] },
+  { nombre: 'Tom Collins', ingredientes: ['Gin', 'Limón', 'Soda', 'Azúcar'], etiquetas: ['Refrescante', 'Clásico'] },
+  { nombre: 'Caipirinha', ingredientes: ['Cachaça', 'Lima', 'Azúcar'], etiquetas: ['Brasileño', 'Dulce'] },
+  { nombre: 'Boulevardier', ingredientes: ['Whiskey', 'Campari', 'Vermut rojo'], etiquetas: ['Amargo', 'Intenso'] },
+];
+
+const coctelesDerecha = [
+  { nombre: 'Mai Tai', ingredientes: ['Ron', 'Lima', 'Orgeat', 'Triple sec'], etiquetas: ['Tropical', 'Dulce'] },
+  { nombre: 'Sazerac', ingredientes: ['Whiskey de centeno', 'Absenta', 'Azúcar', 'Bitters'], etiquetas: ['Fuerte', 'Antiguo'] },
+  { nombre: 'Margarita', ingredientes: ['Tequila', 'Triple sec', 'Lima'], etiquetas: ['Ácido', 'Mexicano'] },
+  { nombre: 'Pisco Sour', ingredientes: ['Pisco', 'Limón', 'Azúcar', 'Clara de huevo'], etiquetas: ['Peruano', 'Suave'] },
+  { nombre: 'Cuba Libre', ingredientes: ['Ron', 'Coca-Cola', 'Lima'], etiquetas: ['Simple', 'Fresco'] },
+  { nombre: 'Gimlet', ingredientes: ['Gin', 'Lima', 'Azúcar'], etiquetas: ['Clásico', 'Cítrico'] },
+  { nombre: 'Rusty Nail', ingredientes: ['Whiskey', 'Drambuie'], etiquetas: ['Denso', 'Fuerte'] },
+  { nombre: 'Rob Roy', ingredientes: ['Whiskey escocés', 'Vermut rojo', 'Bitters'], etiquetas: ['Scotch', 'Elegante'] },
+];
+
+---
+<section class="w-full bg-black py-16 px-4 text-yellow-400" id="coctel-clasico">
+  <h2 class="text-4xl font-bold text-center text-yellow-400 mb-12 border-b-2 border-yellow-600 inline-block pb-2">
+    Cócteles Clásicos
+  </h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto">
+    <!-- Columna izquierda -->
+    <div class="flex flex-col gap-6">
+      {coctelesIzquierda.map((coctel, idx) => (
+        <div key={idx} class="flex items-center border-b border-yellow-800 pb-4">
+          <div class="w-2/3 pr-4">
+            <h3 class="text-xl font-semibold text-yellow-300">{coctel.nombre}</h3>
+            <ul class="list-disc list-inside text-sm text-gray-300">
+              {coctel.ingredientes.map((ing, i) => (
+                <li key={i}>{ing}</li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-2 text-sm">
+              {coctel.etiquetas.map((tag, i) => (
+                <span key={i} class="bg-yellow-600 text-black px-2 py-1 rounded-full">{tag}</span>
+              ))}
+            </div>
+          </div>
+          <img
+            src="/public/assets/imagenes/maracuya.png"
+            alt={coctel.nombre}
+            class="w-1/3 object-cover aspect-square rounded-md"
+          />
+        </div>
+      ))}
+    </div>
+
+    <!-- Columna derecha -->
+    <div class="flex flex-col gap-6">
+      {coctelesDerecha.map((coctel, idx) => (
+        <div key={idx} class="flex items-center border-b border-yellow-800 pb-4">
+          <div class="w-2/3 pr-4">
+            <h3 class="text-xl font-semibold text-yellow-300">{coctel.nombre}</h3>
+            <ul class="list-disc list-inside text-sm text-gray-300">
+              {coctel.ingredientes.map((ing, i) => (
+                <li key={i}>{ing}</li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-2 mt-2 text-sm">
+              {coctel.etiquetas.map((tag, i) => (
+                <span key={i} class="bg-yellow-600 text-black px-2 py-1 rounded-full">{tag}</span>
+              ))}
+            </div>
+          </div>
+          <img
+            src="/public/assets/imagenes/maracuya.png"
+            alt={coctel.nombre}
+            class="w-1/3 object-cover aspect-square rounded-md"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
