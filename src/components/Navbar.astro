@@ -1,76 +1,54 @@
 ---
----
-
+--- 
 <nav id="navbar" class="fixed top-0 left-0 w-full z-50 backdrop-blur-sm bg-black/70 shadow-md transition-all duration-500">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-    
     <!-- Logo -->
-    <a href="/" class="text-[#FFD700] text-2xl font-bold tracking-wide">LUX</a>
-    
+    <a href="/">
+      <img src="Logo-Lux-Dorado.svg" alt="Logo de Lux Bartenders" class="h-10 w-auto" />
+    </a>
+
     <!-- Links Desktop -->
-    <div class="hidden md:flex space-x-6 text-white font-medium">
-      <a href="/" class="hover:text-[#FFD700] transition duration-300">Inicio</a>
-      <a href="/quienes-somos" class="hover:text-[#FFD700] transition duration-300">Nosotros</a>
-      <a href="/servicios" class="hover:text-[#FFD700] transition duration-300">Servicios</a>
-      <a href="/carta" class="hover:text-[#FFD700] transition duration-300">Cócteles</a>
-      <a href="/contacto" class="bg-[#FFD700] text-black px-4 py-1.5 rounded hover:bg-white transition duration-300">Cotizar</a>
+    <div class="hidden md:flex space-x-8 text-white font-medium">
+      <a href="/" class="relative group">Inicio
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/quienes-somos" class="relative group">Nosotros
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/carta" class="relative group">Cócteles
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/contacto" class="relative group">Cotizar
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+      </a>
     </div>
 
-    <!-- Mobile Menu Button -->
-    <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M4 6h16M4 12h16M4 18h16" />
+    <!-- Botón móvil -->
+    <button id="menu-toggle" class="md:hidden text-white focus:outline-none relative z-50">
+      <svg id="icon-open" class="h-6 w-6 fill-current block" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z" />
+      </svg>
+      <svg id="icon-close" class="h-6 w-6 fill-current hidden" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.829-4.828 4.829a1 1 0 0 1-1.414-1.414l4.829-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.828 4.828 4.829-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.828 4.829 4.829z" />
       </svg>
     </button>
   </div>
 
-  <!-- Mobile Menu (Animated) -->
-  <div id="mobile-menu" class="md:hidden hidden px-4 pb-4 bg-black/90 text-white space-y-2 animate-slide-down">
-    <a href="/" class="block hover:text-[#FFD700]">Inicio</a>
-    <a href="/quienes-somos" class="block hover:text-[#FFD700]">Nosotros</a>
-    <a href="/servicios" class="block hover:text-[#FFD700]">Servicios</a>
-    <a href="/carta" class="block hover:text-[#FFD700]">Cócteles</a>
-    <a href="/contacto" class="block text-[#FFD700] font-semibold">Cotizar</a>
+  <!-- Menú móvil -->
+  <div id="mobile-menu" class="md:hidden hidden px-6 pt-4 pb-6 bg-black/90 text-white space-y-4">
+    <a href="/" class="block relative group">Inicio
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="/quienes-somos" class="block relative group">Nosotros
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="/carta" class="block relative group">Cócteles
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+    </a>
+    <a href="/contacto" class="block relative group">Cotizar
+      <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FFD700] transition-all duration-300 group-hover:w-full"></span>
+    </a>
   </div>
 
-  <style>
-    @keyframes slideDown {
-      0% {
-        transform: translateY(-10px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-    .animate-slide-down {
-      animation: slideDown 0.3s ease-out;
-    }
-  </style>
-
-  <script type="module" is:inline>
-    const toggleBtn = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navbar = document.getElementById('navbar');
-
-    let lastScroll = window.scrollY;
-
-    // Mostrar u ocultar navbar al hacer scroll
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-      if (currentScroll > lastScroll) {
-        navbar.classList.add('opacity-0', '-translate-y-10');
-      } else {
-        navbar.classList.remove('opacity-0', '-translate-y-10');
-      }
-      lastScroll = currentScroll;
-    });
-
-    // Mostrar/Ocultar menú móvil
-    toggleBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+  <script src="/src/scripts/navbar.js" defer></script>
 </nav>

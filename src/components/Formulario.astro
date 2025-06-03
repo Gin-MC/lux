@@ -1,0 +1,78 @@
+---
+// Componente de Contacto
+---
+
+<section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 bg-black text-yellow-400" id="contacto">
+
+  <!-- FORMULARIO -->
+  <form 
+    class="space-y-6" 
+    method="POST"
+    action="" 
+    name="formulario-contacto"
+  >
+    <h2 class="text-3xl font-bold border-b-2 border-yellow-600 inline-block pb-1">Cotiza </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input type="text" name="nombre" placeholder="Nombre" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
+      <input type="email" name="email" placeholder="Correo electrónico" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input type="tel" name="telefono" placeholder="Teléfono móvil" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
+      <input type="date" name="fecha" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white" />
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input type="text" name="lugar" placeholder="Lugar del evento" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
+      <input type="number" name="invitados" placeholder="Número de invitados" min="1" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
+    </div>
+
+    <div>
+      <select name="tipo-evento" required class="w-full bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white">
+        <option value="" disabled selected>Tipo de evento</option>
+        <option value="Boda">Boda</option>
+        <option value="XV años">XV años</option>
+        <option value="Cumpleaños">Cumpleaños</option>
+        <option value="Corporativo">Eventos corporativos</option>
+        <option value="Promoción">Fiestas de promoción</option>
+        <option value="Otros">Otros</option>
+      </select>
+    </div>
+
+    <div>
+      <textarea name="mensaje" rows="4" placeholder="Deja tu mensaje..." class="w-full bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400"></textarea>
+    </div>
+
+    <button type="submit" class="bg-yellow-600 text-black px-6 py-3 rounded hover:bg-yellow-500 font-bold transition-all">
+      Enviar mensaje
+    </button>
+  </form>
+
+  <!-- INFORMACIÓN DE CONTACTO -->
+  <div class="flex flex-col justify-center space-y-6">
+    <h2 class="text-3xl font-bold border-b-2 border-yellow-600 inline-block pb-1">Información de contacto</h2>
+    <p class="text-gray-300">¿Listo para hacer de tu evento algo inolvidable? Contáctanos y estaremos encantados de ayudarte con tu cotización personalizada.</p>
+    
+    <ul class="space-y-2 text-gray-400">
+      <li class="flex items-center gap-2">
+        <img src="/icons/email.svg" alt="Email" class="w-5 h-5" /> contacto@luxbartenders.com
+      </li>
+      <li class="flex items-center gap-2">
+        <img src="/icons/phone.svg" alt="Teléfono" class="w-5 h-5" /> +51 987 654 321
+      </li>
+      <li class="flex items-center gap-2">
+        <img src="/icons/instagram.svg" alt="Instagram" class="w-5 h-5" /> @luxbartenders
+      </li>
+      <li class="flex items-center gap-2">
+        <img src="/icons/whatsapp.svg" alt="Whatsapp" class="w-5 h-5" /> +51 987 654 321
+      </li>
+      <li class="flex items-center gap-2">
+        <img src="/icons/tiktok.svg" alt="TikTok" class="w-5 h-5" /> @luxbartenders
+      </li>
+      <li class="flex items-center gap-2">
+        <img src="/icons/location.svg" alt="Ubicación" class="w-5 h-5" /> Lima, Perú
+      </li>
+    </ul>
+  </div>
+</section>
