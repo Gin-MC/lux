@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Conocenos from '../components/Conocenos.astro';
+import MisionVision from '../components/MisionVision.astro';
+import Footer from '../components/Footer.astro';
+import Redes from '../components/Redes.astro';
+---
+
+<Layout>
+    <Navbar slot={"navbar"}/>
+    <Conocenos slot={"conocenos"} />
+    <MisionVision slot={"mision-vision"} />
+    <Redes slot={"redes"}/>
+    <Footer slot={"footer"} />
+</Layout>
