@@ -1,31 +1,50 @@
----
----
-<section class="relative h-[100vh] flex items-center justify-center text-white overflow-hidden">
+<section class="relative min-h-screen flex items-center justify-center text-white overflow-hidden" id="hero">
 
-  <!-- 🎥 Video de fondo -->
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-100 z-0">
-    <source src="/public/assets/videos/hero-bg.mp4" type="video/mp4" />
+  <!-- Video de fondo -->
+  <video autoplay muted loop playsinline aria-hidden="true"
+    class="absolute inset-0 w-full h-full object-cover opacity-100 z-0">
+    <source src="/assets/videos/hero-bg.mp4" type="video/mp4" />
     Tu navegador no admite videos HTML5.
   </video>
 
   <!-- Capa oscura -->
   <div class="absolute inset-0 bg-black/60 z-10"></div>
 
-  <!-- ✨ Contenido -->
+  <!-- Contenido -->
   <div class="relative z-20 text-center px-4">
-    <h1 class="text-5xl md:text-7xl font-extrabold tracking-wide text-[#FFD700] mb-4 animate-fade-delay-1">LUX</h1>
-    <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-6 animate-fade-delay-2">Coctelería de Autor & Servicio Exclusivo para Eventos Inolvidables</p>
-    <a href="/contacto" class="inline-block bg-[#FFD700] text-black px-6 py-3 rounded-full text-lg font-semibold hover:bg-white transition duration-300 animate-fade-delay-3">
+    <img src="/Logo-Lux-Dorado.svg" alt="Logo de Lux Bartenders"
+      class="h-[180px] w-auto mx-auto mb-4 animate-fade-delay-1">
+    
+    <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-6 animate-fade-delay-2">
+      Coctelería de Autor & Servicio Exclusivo para Eventos Inolvidables
+    </p>
+    
+    <a href="/contacto"
+      class="inline-block bg-[#FFD700] text-black px-6 py-3 rounded-full text-lg font-semibold hover:bg-transparent hover:border hover:border-[#FFD700] hover:text-[#FFD700] transition duration-300 animate-fade-delay-3">
       Cotiza tu Evento
     </a>
   </div>
 
+  <!--Flecha de scroll -->
+  <div class="absolute bottom-6 z-20 animate-bounce text-[#FFD700] cursor-pointer" id="scrollArrow">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-auto mb-12" fill="none" viewBox="0 0 24 24"
+      stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+
+  <!--Animaciones -->
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     @keyframes fadeUp {
       from {
         transform: translateY(30px);
         opacity: 0;
       }
+
       to {
         transform: translateY(0);
         opacity: 1;
@@ -33,18 +52,28 @@
     }
 
     .animate-fade-delay-1 {
-      animation: fadeUp 3s ease-out forwards;
+      animation: fadeUp 1s ease-out forwards;
       animation-delay: 0.3s;
     }
 
     .animate-fade-delay-2 {
-      animation: fadeUp 3s ease-out forwards;
+      animation: fadeUp 1s ease-out forwards;
       animation-delay: 0.6s;
     }
 
     .animate-fade-delay-3 {
-      animation: fadeUp 3s ease-out forwards;
+      animation: fadeUp 1s ease-out forwards;
       animation-delay: 0.9s;
     }
   </style>
+
+  <!-- JS para scroll hacia #carta -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const arrow = document.getElementById('scrollArrow');
+      arrow.addEventListener('click', () => {
+        document.getElementById('carta-hero').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </section>

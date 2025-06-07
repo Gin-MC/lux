@@ -1,8 +1,9 @@
 ---
-// Componente de Contacto
 ---
 
-<section class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 bg-black text-yellow-400" id="contacto">
+// Componente Contacto.astro
+
+<section id="contacto" class="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 bg-black text-yellow-400">
 
   <!-- FORMULARIO -->
   <form 
@@ -10,26 +11,46 @@
     method="POST"
     action="" 
     name="formulario-contacto"
+    aria-labelledby="form-title"
   >
-    <h2 class="text-3xl font-bold border-b-2 border-yellow-600 inline-block pb-1">Cotiza </h2>
+    <h2 id="form-title" class="text-5xl mb-8 font-bold pb-1">Cotiza</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input type="text" name="nombre" placeholder="Nombre" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
-      <input type="email" name="email" placeholder="Correo electrónico" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
+      <label class="flex flex-col gap-1">
+        <span class="sr-only">Nombre</span>
+        <input type="text" name="nombre" placeholder="Nombre" required class="bg-[#1a1a1a] p-3 rounded border border-[#FFD700] text-white placeholder-gray-400" />
+      </label>
+      <label class="flex flex-col gap-1">
+        <span class="sr-only">Correo electrónico</span>
+        <input type="email" name="email" placeholder="Correo electrónico" required class="bg-[#1a1a1a] p-3 rounded border border-[#FFD700] text-white placeholder-gray-400" />
+      </label>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input type="tel" name="telefono" placeholder="Teléfono móvil" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
-      <input type="date" name="fecha" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white" />
+      <label class="flex flex-col gap-1">
+        <span class="sr-only">Teléfono móvil</span>
+        <input type="tel" name="telefono" placeholder="Teléfono móvil" required class="bg-[#1a1a1a] p-3 rounded border border-[#FFD700] text-white placeholder-gray-400" />
+      </label>
+      <label class="flex flex-col gap-1">
+        <span class="sr-only">Fecha del evento</span>
+        <input type="date" name="fecha" required class="bg-[#1a1a1a] p-3 rounded border border-[#FFD700] text-white" />
+      </label>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input type="text" name="lugar" placeholder="Lugar del evento" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
-      <input type="number" name="invitados" placeholder="Número de invitados" min="1" required class="bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400" />
+      <label class="flex flex-col gap-1">
+        <span class="sr-only">Lugar del evento</span>
+        <input type="text" name="lugar" placeholder="Lugar del evento" required class="bg-[#1a1a1a] p-3 rounded border border-[#FFD700] text-white placeholder-gray-400" />
+      </label>
+      <label class="flex flex-col gap-1">
+        <span class="sr-only">Número de invitados</span>
+        <input type="number" name="invitados" placeholder="Número de invitados" min="1" required class="bg-[#1a1a1a] p-3 rounded border border-[#FFD700] text-white placeholder-gray-400 appearance-none" />
+      </label>
     </div>
 
-    <div>
-      <select name="tipo-evento" required class="w-full bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white">
+    <label class="flex flex-col gap-1">
+      <span class="sr-only">Tipo de evento</span>
+      <select name="tipo-evento" required class="w-full bg-[#1a1a1a] p-3 rounded border border-[#FFD700] text-white">
         <option value="" disabled selected>Tipo de evento</option>
         <option value="Boda">Boda</option>
         <option value="XV años">XV años</option>
@@ -38,41 +59,52 @@
         <option value="Promoción">Fiestas de promoción</option>
         <option value="Otros">Otros</option>
       </select>
-    </div>
+    </label>
 
-    <div>
-      <textarea name="mensaje" rows="4" placeholder="Deja tu mensaje..." class="w-full bg-[#1a1a1a] p-3 rounded border border-yellow-600 text-white placeholder-gray-400"></textarea>
-    </div>
+    <label class="flex flex-col gap-1">
+      <span class="sr-only">Mensaje</span>
+      <textarea name="mensaje" rows="4" placeholder="Deja tu mensaje..." class="w-full bg-[#1a1a1a] p-3 rounded border border-[#FFD700] text-white placeholder-gray-400"></textarea>
+    </label>
 
-    <button type="submit" class="bg-yellow-600 text-black px-6 py-3 rounded hover:bg-yellow-500 font-bold transition-all">
+    <button type="submit" class="bg-[#FFD700] text-black font-bold px-6 py-3 rounded hover:bg-transparent hover:border hover:border-[#FFD700] hover:text-[#FFD700] transition duration-300 animate-fade-delay-3">
       Enviar mensaje
     </button>
   </form>
 
   <!-- INFORMACIÓN DE CONTACTO -->
   <div class="flex flex-col justify-center space-y-6">
-    <h2 class="text-3xl font-bold border-b-2 border-yellow-600 inline-block pb-1">Información de contacto</h2>
+    <video autoplay muted loop playsinline aria-label="Video de contacto" class="rounded-xl shadow-lg max-h-[500px] object-cover">
+      <source src="/videos/bar-loop.mp4" type="video/mp4" />
+    </video>
+
+    <h2 class="text-3xl font-bold border-b-2 border-[#FFD700] inline-block pb-1">Información de contacto</h2>
     <p class="text-gray-300">¿Listo para hacer de tu evento algo inolvidable? Contáctanos y estaremos encantados de ayudarte con tu cotización personalizada.</p>
     
     <ul class="space-y-2 text-gray-400">
       <li class="flex items-center gap-2">
-        <img src="/icons/email.svg" alt="Email" class="w-5 h-5" /> luxserviciosbartenders@gmail.com
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffd700" viewBox="0 0 24 24">
+          <path d="M2,6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6M4,6V8.17L12,13L20,8.17V6H4M20,18V10.5L12,15.5L4,10.5V18H20Z" />
+        </svg>
+        <p>luxserviciosbartenders@gmail.com</p>
       </li>
       <li class="flex items-center gap-2">
-        <img src="/icons/phone.svg" alt="Teléfono" class="w-5 h-5" /> +51 987 654 321
-      </li>
-      <li class="flex items-center gap-2">
-        <img src="/icons/instagram.svg" alt="Instagram" class="w-5 h-5" /> @lux_bartenders_
-      </li>
-      <li class="flex items-center gap-2">
-        <img src="/icons/whatsapp.svg" alt="Whatsapp" class="w-5 h-5" /> +51 987 654 321
-      </li>
-      <li class="flex items-center gap-2">
-        <img src="/icons/tiktok.svg" alt="TikTok" class="w-5 h-5" /> @lux_bartenders_
-      </li>
-      <li class="flex items-center gap-2">
-        <img src="/icons/location.svg" alt="Ubicación" class="w-5 h-5" /> Lima, Perú
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#FFD700" viewBox="0 0 24 24">
+          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24c1.12.37 2.33.57 3.54.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.21.2 2.42.57 3.54a1 1 0 01-.24 1.05l-2.2 2.2z"/>
+        </svg>
+        <p>+51 999 999 999</p>
       </li>
     </ul>
   </div>
 </section>
+
+<style>
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+</style>
