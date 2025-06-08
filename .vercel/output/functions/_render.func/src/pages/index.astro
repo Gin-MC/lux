@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import CocktailCard from '../components/CocktailCard.astro';
+import Footer from '../components/Footer.astro';
+import Redes from '../components/Redes.astro';
+---
+
+<Layout>
+    <Navbar slot={"navbar"}/>
+    <Hero slot={"hero"} />
+    <CocktailCard slot={"coctail-card"} />
+    <Footer slot={"footer"} />
+    <Redes slot={"redes"}/>
+</Layout>
