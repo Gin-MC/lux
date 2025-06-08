@@ -9,8 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
     "@tailwindcss/vite": "^4.1.6",
     "astro": "^5.7.12",
+    "dotenv": "^16.5.0",
+    "resend": "^4.5.2",
     "tailwindcss": "^4.1.6"
   }
 }

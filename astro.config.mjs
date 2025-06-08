@@ -1,11 +1,16 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+// astro.config.mjs
+import { defineConfig } from 'astro/config'
+import dotenv from 'dotenv'
+import tailwindcss from '@tailwindcss/vite'
 
-import tailwindcss from '@tailwindcss/vite';
+// Cargar variables de entorno
+dotenv.config()
 
-// https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    define: {
+      'process.env': process.env
+    }
   }
-});
+})
