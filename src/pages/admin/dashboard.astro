@@ -1,0 +1,14 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import Aside from '../../components/admin/Aside.astro';
+import DashboardCard from '../../components/admin/DashboardCard.astro';
+
+---
+
+<AdminLayout>
+  <Aside slot={"sidebar"}/>
+    <section>
+      <p>Bienvenido</p>
+    </section>
+      <DashboardCard slot={"DashboardCard"}/>
+</AdminLayout>
