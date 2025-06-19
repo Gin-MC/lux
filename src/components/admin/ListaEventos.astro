@@ -1,0 +1,55 @@
+---
+const eventos = [
+  {
+    nombre: 'Boda en Miraflores',
+    fecha: '22/06/2025',
+    cliente: 'Daniela P.',
+    lugar: 'Hotel Marriot',
+  },
+  {
+    nombre: 'Fiesta Corporativa',
+    fecha: '30/06/2025',
+    cliente: 'Grupo Alfa',
+    lugar: 'Casa Prado',
+  },
+  {
+    nombre: 'Cumpleaños Privado',
+    fecha: '04/07/2025',
+    cliente: 'Lucía R.',
+    lugar: 'San Isidro',
+  }
+];
+---
+
+<div class="bg-[#1a1a1a] border border-yellow-400 rounded-xl p-4 shadow-lg">
+  <h2 class="text-lg font-semibold text-yellow-400 mb-4">Eventos Próximos</h2>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm text-left text-white">
+      <thead class="text-xs uppercase bg-[#111] text-yellow-400">
+        <tr>
+          <th class="px-4 py-2">Evento</th>
+          <th class="px-4 py-2">Fecha</th>
+          <th class="px-4 py-2">Cliente</th>
+          <th class="px-4 py-2">Lugar</th>
+          <th class="px-4 py-2">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        {eventos.map((e, i) => (
+          <tr class="border-b border-[#333] hover:bg-[#222]" key={i}>
+            <td class="px-4 py-2">{e.nombre}</td>
+            <td class="px-4 py-2">{e.fecha}</td>
+            <td class="px-4 py-2">{e.cliente}</td>
+            <td class="px-4 py-2">{e.lugar}</td>
+            <td class="px-4 py-2">
+              <button class="bg-yellow-400 hover:bg-yellow-300 text-black px-3 py-1 rounded text-xs font-bold transition">
+                Inspeccionar
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

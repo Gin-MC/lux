@@ -1,14 +1,40 @@
 ---
 import AdminLayout from '../../layouts/AdminLayout.astro';
 import Aside from '../../components/admin/Aside.astro';
-import DashboardCard from '../../components/admin/DashboardCard.astro';
-
+import Header from '../../components/admin/Header.astro';
+import MetricCards from '../../components/admin/MetricCards.astro';
+import NotificacionesPanel from '../../components/admin/NotificacionesPanel.astro';
+import CalendarioWidget from '../../components/admin/CalendarioWidget.astro';
+import AccionRapida from '../../components/admin/AccionRapida.astro';
+import ListaEventos from '../../components/admin/ListaEventos.astro';
 ---
 
 <AdminLayout>
-  <Aside slot={"sidebar"}/>
-    <section>
-      <p>Bienvenido</p>
-    </section>
-      <DashboardCard slot={"DashboardCard"}/>
+  <Fragment slot="sidebar">
+    <Aside />
+  </Fragment>
+
+  <Fragment slot="header">
+    <Header />
+  </Fragment>
+  
+  <Fragment slot="MetricCard">
+    <MetricCards />
+  </Fragment>
+
+  <Fragment slot="NotificationsPanel">
+    <NotificacionesPanel />
+  </Fragment>
+
+  <Fragment slot="CalendarioWidget">
+    <CalendarioWidget />
+  </Fragment>
+
+  <Fragment slot="AccionRapida">
+    <AccionRapida />
+  </Fragment>
+
+  <Fragment slot="ListaEventos">
+    <ListaEventos />
+  </Fragment>
 </AdminLayout>

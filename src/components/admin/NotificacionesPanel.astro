@@ -1,0 +1,65 @@
+---
+const notificaciones = [
+  {
+    id: 1,
+    icono: '🔔',
+    mensaje: 'Nuevo evento reservado: Boda en Miraflores',
+    fecha: 'Hace 2 horas',
+  },
+  {
+    id: 2,
+    icono: '📩',
+    mensaje: 'Cotización enviada a cliente: Daniela P.',
+    fecha: 'Hace 1 día',
+  },
+  {
+    id: 3,
+    icono: '🧾',
+    mensaje: 'Cliente solicitó modificación en cocteles.',
+    fecha: 'Hace 3 días',
+  },
+  {
+    id: 4,
+    icono: '📌',
+    mensaje: 'Tienes 4 tareas pendientes para revisar.',
+    fecha: 'Hace 5 días',
+  },
+];
+---
+
+<div class="bg-[#1a1a1a] border border-yellow-400 rounded-xl p-4 shadow-lg">
+  <h2 class="text-lg font-semibold mb-4 text-yellow-400">Notificaciones</h2>
+  <ul id="notificacionesList" class="space-y-3">
+    {notificaciones.map((n) => (
+      <li id={`n-${n.id}`} class="flex items-start gap-3 bg-[#111] p-3 rounded-lg hover:bg-[#222] transition relative group">
+        <span class="text-2xl">{n.icono}</span>
+        <div class="flex flex-col flex-1">
+          <p class="text-sm text-white" id={`mensaje-${n.id}`}>{n.mensaje}</p>
+          <span class="text-xs text-gray-400">{n.fecha}</span>
+        </div>
+
+        <!-- Botones -->
+        <div class="flex gap-2 absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition">
+          <button onclick={`marcarVisto(${n.id})`} title="Marcar como visto" class="text-green-400 hover:text-green-300 text-sm">✅</button>
+          <button onclick={`eliminarNotificacion(${n.id})`} title="Eliminar" class="text-red-400 hover:text-red-300 text-sm">🗑️</button>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script is:client>
+  function marcarVisto(id) {
+    const mensaje = document.getElementById(`mensaje-${id}`);
+    if (mensaje) {
+      mensaje.classList.add('line-through', 'text-gray-500');
+    }
+  }
+
+  function eliminarNotificacion(id) {
+    const noti = document.getElementById(`n-${id}`);
+    if (noti) {
+      noti.remove();
+    }
+  }
+</script>

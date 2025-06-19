@@ -1,0 +1,37 @@
+---
+const acciones = [
+  {
+    nombre: 'Nuevo Evento',
+    icono: '📅',
+    href: '/admin/gestionEventos'
+  },
+  {
+    nombre: 'Cotizar',
+    icono: '💰',
+    href: '/admin/cotizaciones'
+  },
+  {
+    nombre: 'Nuevo Cliente',
+    icono: '🧑‍💼',
+    href: '/admin/clientes'
+  },
+  {
+    nombre: 'Agregar Receta',
+    icono: '🍸',
+    href: '/admin/recetas'
+  }
+];
+---
+
+<div class="bg-[#1a1a1a] border border-yellow-400 rounded-xl p-4 shadow-lg">
+  <h2 class="text-lg font-semibold text-yellow-400 mb-4">Acciones Rápidas</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {acciones.map((accion) => (
+      <a href={accion.href} class="bg-[#111] hover:bg-yellow-400 hover:text-black text-yellow-400 border border-yellow-500 rounded-lg p-4 flex flex-col items-center justify-center text-center transition shadow-md">
+        <div class="text-3xl mb-2">{accion.icono}</div>
+        <span class="text-sm font-medium">{accion.nombre}</span>
+      </a>
+    ))}
+  </div>
+</div>

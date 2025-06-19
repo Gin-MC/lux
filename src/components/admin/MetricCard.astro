@@ -1,0 +1,9 @@
+---
+const { icon, cantidad, descripcion } = Astro.props;
+---
+
+<div class="bg-[#1a1a1a] border border-yellow-400 rounded-xl p-4 flex flex-col items-center justify-center text-yellow-400 shadow-md hover:scale-[1.02] transition-all text-center">
+  <div class="w-10 h-10 mb-2" innerHTML={icon}></div>
+  <div class="text-3xl font-bold">{cantidad}</div>
+  <div class="text-sm uppercase tracking-wide">{descripcion}</div>
+</div>
