@@ -17,12 +17,12 @@ import '../styles/global.css';
     </aside>
 
     <!-- Header -->
-    <header class="bg-[#1a1a1a] p-6 md:hidden">
-      <slot name="header" />
-    </header>
-
+    
     <!-- Main content -->
     <main class="flex-1 p-6 overflow-x-hidden">
+      <header class="bg-[#1a1a1a] p-6 md:hidden">
+        <slot name="header" />
+      </header>
       <section class="mb-8">
         <slot name="MetricCard" />
       </section>

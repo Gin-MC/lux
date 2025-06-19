@@ -1,25 +1,41 @@
 ---
 const user = {
   nombre: 'Administrador',
-  avatar: 'https://i.pravatar.cc/40?img=5' // temporal, puedes poner el logo de LUX u otro
+  avatar: 'https://i.pravatar.cc/40?img=5'
 };
 ---
 
-<div class="w-full flex justify-between items-center px-6 py-4 bg-[#1a1a1a] border-b border-yellow-500 rounded-t-xl">
-  <!-- Título -->
-  <h1 class="text-yellow-400 text-xl font-bold">Bienvenido, {user.nombre}</h1>
+<div class="w-full flex justify-between items-center px-6 py-4 bg-[#1a1a1a] border-b border-yellow-500 rounded-t-xl relative z-50">
+  <!-- Título visible SIEMPRE -->
+  <h1 class="text-yellow-400 text-lg sm:text-xl font-bold">Bienvenido, {user.nombre}</h1>
 
-  <!-- Menú usuario -->
-  <div class="relative group">
-    <button class="flex items-center gap-2 bg-[#111] hover:bg-yellow-400 hover:text-black transition text-yellow-400 px-4 py-2 rounded-lg font-semibold">
+  <!-- Menú de usuario -->
+  <div class="relative">
+    <button id="menu-toggle" class="flex items-center gap-2 bg-[#111] hover:bg-yellow-400 hover:text-black transition text-yellow-400 px-4 py-2 rounded-lg font-semibold">
       <img src={user.avatar} alt="avatar" class="w-8 h-8 rounded-full" />
-      <span class="hidden sm:inline">Cuenta</span>
+      <span>Cuenta</span>
     </button>
 
-    <!-- Menú desplegable -->
-    <div class="absolute right-0 mt-2 bg-[#111] border border-yellow-500 rounded-lg shadow-lg hidden group-hover:block z-10 min-w-[150px]">
+    <!-- Dropdown -->
+    <div id="dropdown-menu" class="absolute right-0 mt-2 w-48 bg-[#111] border border-yellow-500 rounded-lg shadow-lg hidden z-50">
       <a href="/admin/configuracion" class="block px-4 py-2 text-sm text-yellow-400 hover:bg-yellow-400 hover:text-black transition">⚙️ Configuraciones</a>
       <button class="w-full text-left px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition">🔓 Cerrar sesión</button>
     </div>
   </div>
+
+  <script type="module">
+    const toggleBtn = document.getElementById('menu-toggle');
+    const dropdown = document.getElementById('dropdown-menu');
+
+    toggleBtn.addEventListener('click', () => {
+      dropdown.classList.toggle('hidden');
+    });
+
+    // Cerrar menú al hacer clic fuera
+    window.addEventListener('click', (e) => {
+      if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
+  </script>
 </div>
