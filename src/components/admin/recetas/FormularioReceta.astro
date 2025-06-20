@@ -1,0 +1,103 @@
+---
+const tipos = ['Coctel de autor', 'Mixología', 'Shot', 'Mocktails'];
+
+const etiquetas = [
+  'Refrescante',
+  'Afrutado',
+  'Especiado',
+  'Cítrico',
+  'Ahumado',
+  'Afrodisíaco'
+];
+---
+
+<form id="form-receta" class="grid gap-4 text-white" onsubmit="event.preventDefault();">
+  <!-- Tipo de receta -->
+  <div>
+    <label for="tipo" class="block mb-1 text-yellow-400 font-medium">Tipo de receta</label>
+    <select id="tipo-receta" name="tipo" class="w-full p-2 bg-zinc-800 border border-yellow-500 rounded">
+      <option value="">Selecciona una opción</option>
+      {tipos.map((tipo) => (
+        <option value={tipo}>{tipo}</option>
+      ))}
+    </select>
+  </div>
+
+  <!-- Nombre -->
+  <div id="campo-nombre">
+    <label class="block mb-1 text-yellow-400 font-medium">Nombre</label>
+    <input type="text" name="nombre" class="w-full p-2 bg-zinc-800 border border-yellow-500 rounded" />
+  </div>
+
+  <!-- Descripción -->
+  <div id="campo-descripcion">
+    <label class="block mb-1 text-yellow-400 font-medium">Descripción</label>
+    <textarea name="descripcion" rows="2" class="w-full p-2 bg-zinc-800 border border-yellow-500 rounded"></textarea>
+  </div>
+
+  <!-- Ingredientes -->
+  <div id="campo-ingredientes">
+    <label class="block mb-1 text-yellow-400 font-medium">Ingredientes</label>
+    <textarea name="ingredientes" rows="2" class="w-full p-2 bg-zinc-800 border border-yellow-500 rounded"></textarea>
+  </div>
+
+  <!-- Etiquetas -->
+  <div id="campo-etiquetas">
+    <label class="block mb-1 text-yellow-400 font-medium">Etiquetas</label>
+    <div class="flex flex-wrap gap-3">
+      {etiquetas.map((etiqueta) => (
+        <label class="flex items-center gap-1">
+          <input type="checkbox" name="etiquetas" value={etiqueta} class="accent-yellow-500" />
+          <span>{etiqueta}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <!-- Carga de archivo -->
+  <div id="campo-media">
+    <label id="label-media" class="block mb-1 text-yellow-400 font-medium">Imagen</label>
+    <input
+      type="file"
+      id="input-media"
+      accept="image/*"
+      class="w-full p-2 bg-zinc-800 border border-yellow-500 rounded"
+    />
+  </div>
+</form>
+
+<!-- Script para lógica condicional -->
+<script>
+  const tipoSelect = document.getElementById('tipo-receta');
+  const campoNombre = document.getElementById('campo-nombre');
+  const campoDescripcion = document.getElementById('campo-descripcion');
+  const campoIngredientes = document.getElementById('campo-ingredientes');
+  const campoEtiquetas = document.getElementById('campo-etiquetas');
+  const campoMedia = document.getElementById('campo-media');
+  const labelMedia = document.getElementById('label-media');
+  const inputMedia = document.getElementById('input-media');
+
+  tipoSelect.addEventListener('change', (e) => {
+    const tipo = e.target.value;
+
+    if (tipo === 'Shot') {
+      campoDescripcion.style.display = 'none';
+      campoIngredientes.style.display = 'none';
+      campoEtiquetas.style.display = 'none';
+      labelMedia.textContent = 'Imagen';
+      inputMedia.accept = 'image/*';
+    } else if (tipo === 'Mixología') {
+      campoDescripcion.style.display = '';
+      campoIngredientes.style.display = '';
+      campoEtiquetas.style.display = '';
+      labelMedia.textContent = 'Video';
+      inputMedia.accept = 'video/*';
+    } else {
+      campoDescripcion.style.display = '';
+      campoIngredientes.style.display = '';
+      campoEtiquetas.style.display = '';
+      labelMedia.textContent = 'Imagen';
+      inputMedia.accept = 'image/*';
+    }
+  });
+</script>

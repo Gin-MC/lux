@@ -1,0 +1,53 @@
+---
+import RecetaRow from './RecetaRow.astro'
+
+const recetas = [
+  {
+    id: 1,
+    nombre: 'Mojito',
+    descripcion: 'Refrescante mezcla de menta y lima',
+    etiquetas: ['Refrescante'],
+    url: 'https://www.ashghasdg.com',
+    tipo: 'mocktail',
+  },
+  // Aquí puedes agregar más recetas de prueba
+]
+
+// Este prop debería venir del padre si usas el modal en otro componente
+const onAgregarReceta = () => {
+  // se puede usar Alpine.js o JS para abrir el modal
+}
+---
+
+<section class="p-6">
+  <h2 class="text-lg font-semibold text-yellow-400 mb-4">Tabla de cocteles</h2>
+
+  <div class="overflow-x-auto border-2 border-yellow-500">
+    <table class="w-full table-auto text-left text-white">
+      <thead class="bg-black border-b-2 border-yellow-500">
+        <tr>
+          <th class="px-4 py-2 border-r border-yellow-500">Nombre</th>
+          <th class="px-4 py-2 border-r border-yellow-500">Descripción</th>
+          <th class="px-4 py-2 border-r border-yellow-500">Etiquetas</th>
+          <th class="px-4 py-2 border-r border-yellow-500">URL de Imagen</th>
+          <th class="px-4 py-2">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {recetas.map((receta) => (
+          <RecetaRow receta={receta} />
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-6 flex justify-end">
+    <button
+      type="button"
+      class="bg-transparent text-yellow-400 border-2 border-yellow-500 px-4 py-2 rounded hover:bg-yellow-500 hover:text-black transition"
+      onclick="document.dispatchEvent(new CustomEvent('abrir-modal'))"
+    >
+      Agregar nueva receta
+    </button>
+  </div>
+</section>

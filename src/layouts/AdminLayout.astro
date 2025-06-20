@@ -1,5 +1,4 @@
 ---
-
 import '../styles/global.css';
 ---
 
@@ -12,27 +11,34 @@ import '../styles/global.css';
   <body class="min-h-screen flex bg-black text-yellow-400 font-sans">
 
     <!-- Sidebar -->
-    <aside class="bg-[#1a1a1a] p-6 hidden md:block">
+    <aside class="bg-[#1a1a1a] p-6 hidden lg:block">
       <slot name="sidebar" />
     </aside>
 
-    <!-- Header -->
-    
     <!-- Main content -->
     <main class="flex-1 p-6 overflow-x-hidden">
-      <header class="bg-[#1a1a1a] p-6 md:hidden">
+      <!-- Header -->
+      <header class="bg-[#1a1a1a] p-6 rounded mb-4">
         <slot name="header" />
       </header>
+
+      <!-- Métricas -->
       <section class="mb-8">
         <slot name="MetricCard" />
       </section>
+
+      <!-- Paneles secundarios -->
       <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <slot name="NotificationsPanel" />
         <slot name="CalendarioWidget" />
       </section>
-      <section class="mb-8">
+
+      <!-- Acción rápida -->
+      <!-- <section class="mb-8">
         <slot name="AccionRapida" />
-      </section>
+      </section> -->
+
+      <!-- Contenido principal -->
       <section>
         <slot name="ListaEventos" />
       </section>
